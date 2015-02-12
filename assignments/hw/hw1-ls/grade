@@ -1,4 +1,53 @@
- 45   / 100  
+45 / 100
+
+-25: cppcheck gives warnings
+-5x3: no error checking for syscalls (-5 for each syscall, see checksyscalls output)
+
+-25: file/folder parameter doesn't work
+
+-5: missing ordering test -R -l, -Rl, -R -a -l
+
++15: coloring works
+
+
+cppcheck output:
+Checking src/ls.cpp...
+[src/ls.cpp:126] -> [src/ls.cpp:128]: (warning) Possible null pointer dereference: front - otherwise it is redundant to check it against null.
+1/2 files checked 71% done
+Checking src/rshell.cpp...
+[src/rshell.cpp:119]: (error) Dangerous usage of 'e' (strncpy doesn't always null-terminate it).
+2/2 files checked 100% done
+
+checksyscalls output:
+
+file: [src/ls.cpp]
+  lines with syscalls:
+  
+  055:  [1;31m[K(getcwd(buf,t)[m[K
+  056:  [1;32m[Kperror()[m[K;
+  065:  [1;31m[K(chdir(buf)[m[K
+  066:  [1;32m[Kperror()[m[K;
+  110:  [1;31m[K(getcwd(path, 100)[m[K
+  111:  [1;32m[Kperror()[m[K;
+  115:  [1;31m[K(stat(path, &mystat)[m[K
+  116:  [1;32m[Kperror()[m[K;
+  132:  [1;31m[K(chdir(front->path)[m[K
+  133:  [1;32m[Kperror()[m[K;
+  136:  [1;31m[K opendir(front->path)[m[K
+  137:  [1;32m[Kperror()[m[K;
+  194:  [1;31m[K getpwuid(uid)[m[K
+  201:  [1;31m[K getgrgid(gid)[m[K
+  240:  [1;31m[K readdir(dirp)[m[K
+  241:  [1;31m[K(stat(direntp->d_name, &st)[m[K
+  242:  [1;32m[Kperror()[m[K;
+  258:  [1;31m[K(getcwd(buf, size)[m[K
+  259:  [1;32m[Kperror()[m[K;
+  281:  [1;31m[K(closedir(dirp)[m[K
+  282:  [1;32m[Kperror()[m[K;
+
+summary:
+  number of syscalls... 12
+  number of perror..... 9
 
 
 
