@@ -1,8 +1,4 @@
-70 / 100
-
-updated after the office hour: cppcheck still gives warnings (we run it with --enable=warning option) please fix that and let me know
-
--25: cppcheck gives warnings
+95 / 100
 
 -5x3: no error checking for syscalls (-5 for each syscall, see checksyscalls output)
 
