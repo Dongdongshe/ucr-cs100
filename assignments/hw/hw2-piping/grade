@@ -7,8 +7,8 @@ Input Redirection: 20/25
     [5/5] Input redirection without space
     [5/5] Input redirection with piping
 Output Redirection: 15/25
-    [5/5]   Output redirection (>) to an existant file
-    [0/5]   Output redirection (>) to a non-existant file (should not throw an error)
+    [0/5]   Output redirection (>) to an existant file
+    [5/5]   Output redirection (>) to a non-existant file (should not throw an error)
     [5/5]   Output redirection (>>) to an existant file
     [0/5]   Output reidrection (>>) to a non-existant file (should not throw an error)
     [2.5/2.5] Output redirection with space (> and >>)
